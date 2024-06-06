@@ -54,7 +54,7 @@ def call_cust(custom_list, file):
     return output, result1.astype(float)
 
 
-@st.cache_data
+@st.cache_data(allow_output_mutation=True, show_spinner=False)
 def plot_treemap(fraud_counts):
 
 

@@ -1,0 +1,14 @@
+{
+    "metric_names": [
+        "Accuracy",
+        "Precision",
+        "Recall",
+        "F-1 Score"
+    ],
+    "metric_values": [
+        0.99675,
+        0.7671232876712328,
+        0.5384615384615384,
+        0.632768361581921
+    ]
+}

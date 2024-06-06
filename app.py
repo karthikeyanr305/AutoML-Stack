@@ -460,7 +460,7 @@ def basicEDA2(dataset0, file_size):
 
     
     
-        st.header("Important Findings")
+        st.header("Important Findings :mag_right:")
         st.subheader('City with highest amount of Fraudulent transactions')
         st.write("\n")
         #st.markdown("{} - ${}".format(max_fraud_city, max_fraud_amt))

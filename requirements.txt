@@ -41,7 +41,6 @@ matplotlib-inline==0.1.7
 mdurl==0.1.2
 mistune==3.0.2
 nbclient==0.10.0
-nbconvert==7.16.4
 pywin32==306
 pyzmq==26.0.3
 referencing==0.35.1

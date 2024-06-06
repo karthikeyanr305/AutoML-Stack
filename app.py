@@ -1,5 +1,4 @@
 import streamlit as st
-st.set_page_config(layout="wide")
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -36,6 +35,7 @@ from plotly.subplots import make_subplots
 print("Entering applicaton")
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
+st.set_page_config(layout="wide")
 
 
 def call_cust(custom_list, file):
@@ -54,7 +54,7 @@ def call_cust(custom_list, file):
     return output, result1.astype(float)
 
 
-#@st.cache_data
+@st.cache_data
 def st_plot_treemap(fig_treemap):
     st.plotly_chart(fig_treemap, use_container_width=True)
 
@@ -69,7 +69,7 @@ def plot_treemap(fraud_counts):
 
     st_plot_treemap(fig_treemap)
     
-#@st.cache_data
+@st.cache_data
 def st_plot_pie(fig_pie):
     st.plotly_chart(fig_pie, use_container_width=True)
 
@@ -102,7 +102,7 @@ def plot_pie(dataset):
     #time.sleep(0.5)
     st_plot_pie(fig_pie)
 
-#@st.cache_data
+@st.cache_data
 def st_plot_combined(fig_comb):
     st.plotly_chart(fig_comb, use_container_width=True)
 
@@ -171,7 +171,7 @@ def plot_geo_map(fraud_counts):
     st.plotly_chart(fig_geo, use_container_width=True)
 
 
-#@st.cache_data
+@st.cache_data
 def st_plot_geo_map2(fig_geo2):
     st.plotly_chart(fig_geo2, use_container_width=True)
 
@@ -212,7 +212,7 @@ def plot_geo_map2(fraud_stats):
 
 #@st.cache_data
 def stream_clean():
-    clean_text0 = "Cleaning...\n"
+    clean_text0 = "Cleaning... :broom:\n"
     clean_text1 = "1.Formatting Data types.\n"
     clean_text2 = "2.Dropping unnecessary columns.\n"
     clean_text3 = "3.Formatting missing values.\n"
@@ -239,7 +239,7 @@ def stream_imbalance_caution():
 
 @st.cache_data(experimental_allow_widgets=True)
 def stream_imbalance_caution_static():
-    st.write("There seems to be a class imbalance. Would you like to improve the model performance by using SMOTE?\n")
+    st.subheader("There seems to be a class imbalance. Would you like to improve the model performance by using SMOTE?\n")
 
 #@st.cache_data
 def compare_model_smote(model_name, isSMOTE, file_size):
@@ -438,7 +438,7 @@ def basicEDA2(dataset0, file_size):
     
 
 
-    explore_data  = st.toggle("Perform EDA")
+    explore_data  = st.toggle("Perform EDA :world_map: :flashlight:")
 
     if explore_data:
         st.write("Voila!")
@@ -533,7 +533,7 @@ def basicEDA2(dataset0, file_size):
     
     model_metrics = {}
 
-    st.session_state.train_model = st.toggle("Train Model!")#st.button("Train Model!")
+    st.session_state.train_model = st.toggle("Train Model! :computer: :chart_with_upwards_trend:")#st.button("Train Model!")
 
     if st.session_state.train_model:
 
@@ -590,7 +590,7 @@ def basicEDA2(dataset0, file_size):
             naiveBayes(st.session_state.X, st.session_state.y, st.session_state.isSMOTE)
 
     #compare_models  = st.toggle("Compare model performance with and without SMOTE")
-    compare_all_models  = st.toggle("Compare model performance with other models")
+    compare_all_models  = st.toggle("Compare model performance with other models :bar_chart:")
 
     if compare_all_models:
         plot_compare_all(st.session_state.isSMOTE, file_size)
@@ -647,7 +647,7 @@ def app():
         The result? Financial losses and eroded trust. We utilize advanced analytics and machine learning, including techniques like SMOTE to tackle imbalanced data for
             predictive accuracy, to enhance detection capabilities. Our goal is to not just detect fraud, but to predict and prevent it, ensuring security and trust in every transaction."""
         st.markdown(intro_content % fraud_url)
-        st.header('Problem Statement')
+        st.header('Problem Statement :question:')
         st.markdown(problem_content)
 
         data_option = st.selectbox("Select an option to make prediction", ["--Select--", "Default Dataset - 10k", "Default Dataset - 100k", "Upload Dataset - CSV"])

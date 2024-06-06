@@ -45,7 +45,6 @@ nbconvert==7.16.4
 nbformat==5.10.4
 nest-asyncio==1.6.0
 numba==0.59.1
-numpy==1.26.4
 pywin32==306
 pyzmq==26.0.3
 referencing==0.35.1

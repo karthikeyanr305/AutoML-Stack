@@ -54,7 +54,7 @@ def call_cust(custom_list, file):
     return output, result1.astype(float)
 
 
-@st.cache_data
+#@st.cache_data
 def st_plot_treemap(fig_treemap):
     st.plotly_chart(fig_treemap, use_container_width=True)
 
@@ -69,7 +69,7 @@ def plot_treemap(fraud_counts):
 
     st_plot_treemap(fig_treemap)
     
-@st.cache_data
+#@st.cache_data
 def st_plot_pie(fig_pie):
     st.plotly_chart(fig_pie, use_container_width=True)
 
@@ -102,7 +102,7 @@ def plot_pie(dataset):
     #time.sleep(0.5)
     st_plot_pie(fig_pie)
 
-@st.cache_data
+#@st.cache_data
 def st_plot_combined(fig_comb):
     st.plotly_chart(fig_comb, use_container_width=True)
 
@@ -171,7 +171,7 @@ def plot_geo_map(fraud_counts):
     st.plotly_chart(fig_geo, use_container_width=True)
 
 
-@st.cache_data
+#@st.cache_data
 def st_plot_geo_map2(fig_geo2):
     st.plotly_chart(fig_geo2, use_container_width=True)
 

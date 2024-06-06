@@ -69,8 +69,11 @@ def plot_treemap(fraud_counts):
 
     st_plot_treemap(fig_treemap)
     
+@st.cache_data
+def st_plot_pie(fig_pie):
+    st.plotly_chart(fig_pie, use_container_width=True)
 
-#@st.cache_data
+
 def plot_pie(dataset):
     labels = ["Authentic Transaction", "Fraudulent Transaction"]
     values = dataset["is_fraud"].value_counts()
@@ -96,10 +99,14 @@ def plot_pie(dataset):
     #fig.show()
     
     # Plot!
-    time.sleep(0.5)
-    st.plotly_chart(fig_pie, use_container_width=True)
+    #time.sleep(0.5)
+    st_plot_pie(fig_pie)
 
-#@st.cache_data
+@st.cache_data
+def st_plot_combined(fig_comb):
+    st.plotly_chart(fig_comb, use_container_width=True)
+
+
 def plot_combined(fraud_stats):
     # Create subplots
     fig_comb = make_subplots(specs=[[{"secondary_y": True}]])
@@ -128,9 +135,11 @@ def plot_combined(fraud_stats):
     fig_comb.update_yaxes(title_text='Sum of Fraud Amounts', secondary_y=True)
 
     # Show the figure
-    st.plotly_chart(fig_comb, use_container_width=True)
+    st_plot_combined(fig_comb)
+    
 
-#@st.cache_data
+
+
 def plot_geo_map(fraud_counts):
 
     # Create the scatter geo plot
@@ -160,6 +169,11 @@ def plot_geo_map(fraud_counts):
 
     # Show the figure
     st.plotly_chart(fig_geo, use_container_width=True)
+
+
+@st.cache_data
+def st_plot_geo_map2(fig_geo2):
+    st.plotly_chart(fig_geo2, use_container_width=True)
 
 #@st.cache_data
 def plot_geo_map2(fraud_stats):
@@ -193,7 +207,8 @@ def plot_geo_map2(fraud_stats):
 
     # Show the figure
     #fig_geo2.show()
-    st.plotly_chart(fig_geo2, use_container_width=True)
+    #st.plotly_chart(fig_geo2, use_container_width=True)
+    st_plot_geo_map2(fig_geo2)
 
 #@st.cache_data
 def stream_clean():

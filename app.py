@@ -54,7 +54,8 @@ def call_cust(custom_list, file):
     return output, result1.astype(float)
 
 
-@st.cache_data
+#@st.cache_data
+@st.cache_resource
 def st_plot_treemap(fig_treemap):
     st.plotly_chart(fig_treemap, use_container_width=True)
 

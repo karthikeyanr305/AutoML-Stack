@@ -65,7 +65,6 @@ pure-eval==0.2.2
 pyarrow==16.1.0
 pydeck==0.9.1
 Pygments==2.18.0
-pyparsing
 pywin32==306
 pyzmq==26.0.3
 referencing==0.35.1

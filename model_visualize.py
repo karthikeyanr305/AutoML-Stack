@@ -25,26 +25,7 @@ from sklearn.metrics import precision_recall_curve, roc_curve, roc_auc_score, co
 import json
 
 @st.cache_data
-def plot_shap(_model, X_train, X_test, model_name):
-    # Initialize the SHAP Explainer
-    
-    explainer = None
-    
-    if model_name == 'LR':
-        explainer = shap.Explainer(_model, X_train)
-    else:
-        explainer = shap.TreeExplainer(_model)
-
-    # Compute SHAP values for the test set
-    shap_values = explainer(X_test)
-
-    # Convert SHAP values to DataFrame
-    shap_df = None
-    if model_name in ['LR', 'XG']:
-        shap_df = pd.DataFrame(shap_values.values, columns=X_test.columns)
-    elif model_name in ['RF']:
-        shap_df = pd.DataFrame(shap_values.values[:,:,1], columns=X_test.columns)
-
+def plot_shap(shap_df, X_train, X_test, model_name):
     
     # Calculate mean absolute SHAP values
     mean_shap = shap_df.abs().mean().sort_values(ascending=False)
@@ -212,6 +193,27 @@ def visualize_model(model, X, y, X_train, X_test, y_train, y_test, model_name, i
     st.write('y_train.size():' , y_train.size)
     st.write('sum(y_train)', sum(y_train))'''
 
+    # for shap
+
+    # Initialize the SHAP Explainer
+    
+    explainer = None
+    
+    if model_name == 'LR':
+        explainer = shap.Explainer(model, X_train)
+    else:
+        explainer = shap.TreeExplainer(model)
+
+    # Compute SHAP values for the test set
+    shap_values = explainer(X_test)
+
+    # Convert SHAP values to DataFrame
+    shap_df = None
+    if model_name in ['LR', 'XG']:
+        shap_df = pd.DataFrame(shap_values.values, columns=X_test.columns)
+    elif model_name in ['RF']:
+        shap_df = pd.DataFrame(shap_values.values[:,:,1], columns=X_test.columns)
+
     top_left, top_right = st.columns(2)
     mid_left, mid_right = st.columns(2)
     bottom_left, bottom_right  = st.columns(2)
@@ -219,7 +221,7 @@ def visualize_model(model, X, y, X_train, X_test, y_train, y_test, model_name, i
 
 
     with top_left:
-        plot_shap(model, X_train, X_test, model_name)
+        plot_shap(shap_df, X_train, X_test, model_name)
         
         #st.write("block for shap")
 

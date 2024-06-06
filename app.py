@@ -32,7 +32,7 @@ import plotly.graph_objects as go
 import plotly.express as px
 from plotly.subplots import make_subplots
 
-print("ENtering applicaton")
+print("Entering applicaton")
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
 st.set_page_config(layout="wide")
@@ -54,7 +54,7 @@ def call_cust(custom_list, file):
     return output, result1.astype(float)
 
 
-@st.cache_data(allow_output_mutation=True, show_spinner=False)
+@st.cache_data
 def plot_treemap(fraud_counts):
 
 

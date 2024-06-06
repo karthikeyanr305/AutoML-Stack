@@ -149,7 +149,7 @@ def plot_confusion_matrix(cm):
 
 def visualize_model(model, X, y, X_train, X_test, y_train, y_test, model_name, isSMOTE, file_size):
 
-    st.write("Train data - 80% \T Test Data - 20%")
+    st.write("Train data - 80% \t Test Data - 20%")
     if model_name != 'LR':
         st.write("Optimizing model parameters using grid search!")
 

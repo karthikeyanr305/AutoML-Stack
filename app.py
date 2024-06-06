@@ -54,7 +54,7 @@ def call_cust(custom_list, file):
     return output, result1.astype(float)
 
 
-@st.cache_data
+#@st.cache_data
 def plot_treemap(fraud_counts):
 
 
@@ -67,7 +67,7 @@ def plot_treemap(fraud_counts):
 
     st.plotly_chart(fig_treemap, use_container_width=True)
 
-@st.cache_data
+#@st.cache_data
 def plot_pie(dataset):
     labels = ["Authentic Transaction", "Fraudulent Transaction"]
     values = dataset["is_fraud"].value_counts()
@@ -96,7 +96,7 @@ def plot_pie(dataset):
     time.sleep(0.5)
     st.plotly_chart(fig_pie, use_container_width=True)
 
-@st.cache_data
+#@st.cache_data
 def plot_combined(fraud_stats):
     # Create subplots
     fig_comb = make_subplots(specs=[[{"secondary_y": True}]])
@@ -127,7 +127,7 @@ def plot_combined(fraud_stats):
     # Show the figure
     st.plotly_chart(fig_comb, use_container_width=True)
 
-@st.cache_data
+#@st.cache_data
 def plot_geo_map(fraud_counts):
 
     # Create the scatter geo plot
@@ -158,7 +158,7 @@ def plot_geo_map(fraud_counts):
     # Show the figure
     st.plotly_chart(fig_geo, use_container_width=True)
 
-@st.cache_data
+#@st.cache_data
 def plot_geo_map2(fraud_stats):
 
     # Create the scatter geo plot
@@ -223,7 +223,7 @@ def stream_imbalance_caution():
 def stream_imbalance_caution_static():
     st.write("There seems to be a class imbalance. Would you like to improve the model performance by using SMOTE?\n")
 
-@st.cache_data
+#@st.cache_data
 def compare_model_smote(model_name, isSMOTE, file_size):
 
     if True:
@@ -271,7 +271,7 @@ def compare_model_smote(model_name, isSMOTE, file_size):
         #fig.show()
         st.plotly_chart(fig, use_container_width=True)
 
-@st.cache_data
+#@st.cache_data
 def plot_compare_all(isSMOTE, file_size):
     # Function to load data from a JSON file
     def load_data(filename):
@@ -685,11 +685,3 @@ def app():
         elif data_option == "Upload Dataset - CSV":
             st.markdown(" Feature releasing soon! Please choose from other options!")
     
-
-
-
-
-    
-    
-
-

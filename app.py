@@ -264,7 +264,7 @@ def compare_model_smote(model_name, isSMOTE, file_size):
         fig.add_trace(go.Bar(
             x=metric_names,
             y=values1,
-            name='SMOTE metrics',
+            name='non-SMOTE metrics',
             marker_color='navy'
         ))
 
@@ -272,7 +272,7 @@ def compare_model_smote(model_name, isSMOTE, file_size):
         fig.add_trace(go.Bar(
             x=metric_names,
             y=values2,
-            name='non-SMOTE metrics',
+            name='SMOTE metrics',
             marker_color='lightblue'
         ))
 

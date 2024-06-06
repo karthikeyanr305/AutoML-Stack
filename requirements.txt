@@ -48,7 +48,6 @@ numba==0.59.1
 numpy==1.26.4
 packaging==24.0
 pandas==2.2.2
-pandocfilters==1.5.1
 pywin32==306
 pyzmq==26.0.3
 referencing==0.35.1

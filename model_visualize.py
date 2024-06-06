@@ -24,7 +24,7 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import precision_recall_curve, roc_curve, roc_auc_score, confusion_matrix, f1_score
 import json
 
-@st.cache_data
+#@st.cache_data
 def plot_shap(shap_df, X_train, X_test, model_name):
     
     # Calculate mean absolute SHAP values
@@ -54,7 +54,7 @@ def plot_shap(shap_df, X_train, X_test, model_name):
     st.plotly_chart(fig_shap, use_container_width=True)
 
 
-@st.cache_data
+#@st.cache_data
 def plot_hist_score(y, y_score):
     # The histogram of scores compared to true labels
     fig_hist = px.histogram(
@@ -66,7 +66,7 @@ def plot_hist_score(y, y_score):
     #fig_hist.show()
     st.plotly_chart(fig_hist, use_container_width=True)
 
-@st.cache_data
+#@st.cache_data
 def plot_threshold(fpr, tpr, thresholds):
 
     # Evaluating model performance at various thresholds
@@ -87,7 +87,7 @@ def plot_threshold(fpr, tpr, thresholds):
     #fig_thresh.show()
     st.plotly_chart(fig_thresh, use_container_width=True)
 
-@st.cache_data
+#@st.cache_data
 def plot_auc_roc(fpr, tpr):
     fig_auc = px.area(
     x=fpr, y=tpr,
@@ -105,7 +105,7 @@ def plot_auc_roc(fpr, tpr):
     #fig.show()
     st.plotly_chart(fig_auc, use_container_width=True)
 
-@st.cache_data
+#@st.cache_data
 def plot_pr_curve(precision, recall, fpr, tpr):
 
     fig_pr = px.area(
@@ -124,7 +124,7 @@ def plot_pr_curve(precision, recall, fpr, tpr):
     #fig_pr.show()
     st.plotly_chart(fig_pr, use_container_width=True)
 
-@st.cache_data
+#@st.cache_data
 def plot_confusion_matrix(cm):
 
     # Convert the confusion matrix to DataFrame for better labeling in Plotly Express

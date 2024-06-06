@@ -54,10 +54,12 @@ def call_cust(custom_list, file):
     return output, result1.astype(float)
 
 
+@st.cache_data
+def st_plot_treemap(fig_treemap):
+    st.plotly_chart(fig_treemap, use_container_width=True)
+
 #@st.cache_data
 def plot_treemap(fraud_counts):
-
-
 
     fig_treemap = px.treemap(fraud_counts, path=[px.Constant('All Categories'), 'category'], values='Fraud count',
                  title='Treemap of Fraud Counts by Category',
@@ -65,7 +67,8 @@ def plot_treemap(fraud_counts):
                  color_continuous_scale='Blues')
     fig_treemap.update_layout(margin=dict(t=50, l=25, r=25, b=25))
 
-    st.plotly_chart(fig_treemap, use_container_width=True)
+    st_plot_treemap(fig_treemap)
+    
 
 #@st.cache_data
 def plot_pie(dataset):
